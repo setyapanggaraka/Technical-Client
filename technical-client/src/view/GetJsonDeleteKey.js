@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function GetJson() {
+export default function GetJsonDeleteKey() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -9,8 +9,11 @@ export default function GetJson() {
       .get("http://jsonplaceholder.typicode.com/posts")
       .then((response) => {
         console.log(response.data);
-        const post = response.data.slice(0, 10);
-        setData(post);
+        const deleteBodyKey = response.data.slice(0, 10);
+        deleteBodyKey.forEach((el) => {
+          delete el.body;
+        });
+        setData(deleteBodyKey);
       })
       .catch((error) => {
         console.log(error);
@@ -31,7 +34,6 @@ export default function GetJson() {
         <tr>
           <th>ID</th>
           <th>Title</th>
-          <th>Body</th>
         </tr>
       </thead>
       <tbody>
