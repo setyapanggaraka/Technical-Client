@@ -4,18 +4,16 @@ import GetJson from "./view/GetJson";
 import GetJsonDeleteKey from "./view/GetJsonDeleteKey";
 import HashString from "./view/HashString";
 import Login from "./view/Login";
+import router from "./routes/router";
+import { RouterProvider } from "react-router-dom";
+import store from "./stores";
+import { Provider } from "react-redux";
 
 function App() {
-  // return <ChangeButton />;
-  // return <GetJson />;
-  // return <GetJsonDeleteKey />;
-  // return <HashString />;
   return (
-    <>
-      <Login />
-      {/* <h1 className="text-5xl font-semibold underline">Hello world!</h1>
-      <button className="btn">Button</button> */}
-    </>
+    <Provider store={store}>
+      <RouterProvider router={router} />;
+    </Provider>
   );
 }
 
