@@ -31,13 +31,34 @@ export default function Button() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
-    <div>
-      <label>{books[currentIndex].title}</label>
-      <button
-        onClick={() => setCurrentIndex((currentIndex + 1) % books.length)}
-      >
-        Next Book
-      </button>
-    </div>
+    <>
+      <div className="flex items-center justify-center h-screen bg-gray-200">
+        <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card-body">
+            <div className="text-center">
+              <h2 className="card-title">{books[currentIndex].title}</h2>
+            </div>
+            <div className="card-actions justify-center">
+              <button
+                onClick={() =>
+                  setCurrentIndex((currentIndex + 1) % books.length)
+                }
+                className="btn btn-primary"
+              >
+                Next Book
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div>
+        <label>{books[currentIndex].title}</label>
+        <button
+          onClick={() => setCurrentIndex((currentIndex + 1) % books.length)}
+        >
+          
+        </button>
+      </div> */}
+    </>
   );
 }

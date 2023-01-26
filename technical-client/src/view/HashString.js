@@ -18,5 +18,20 @@ export default function HashString() {
 
   console.log(hashedString);
 
-  return <div>Check the console for the hashed string</div>;
+  return (
+    <>
+      <div className="flex flex-col">
+        <div className="flex items-center justify-center h-screen bg-gray-200">
+          <div className="card w-auto bg-base-100 shadow-xl">
+            <div className="card-body">
+              <div className="text-center">
+                <h2 className="card-title">Hash: {hashedString}</h2>
+              </div>
+              <div className="card-actions justify-center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }

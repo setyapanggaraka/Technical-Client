@@ -26,26 +26,35 @@ export default function GetJson() {
   }
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Body</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((post, index) => (
-          <tr key={index}>
-            <td>{post.id}</td>
-            <td>{post.title}</td>
-            <td>{post.body}</td>
-            <td>
-              <button onClick={() => handleDelete(post.id)}>Delete</button>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <>
+      <div className="h-screen card w-full bg-base-100 shadow-xl">
+        <div className="overflow-x-auto">
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Body</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((post, index) => (
+                <tr key={index}>
+                  <td>{post.id}</td>
+                  <td>{post.title}</td>
+                  <td>{post.body}</td>
+                  <td>
+                    <button onClick={() => handleDelete(post.id)}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
   );
 }
